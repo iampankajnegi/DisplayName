@@ -15,6 +15,7 @@ const Myform = () => {
     })
 
     const [fullName, setFullName] = useState('');
+    
   
 
 
@@ -22,8 +23,9 @@ const Myform = () => {
 
         e.preventDefault()
 
-        let newFullName = `${formData.firstName} ${formData.lastName}`;
+        let newFullName = `Full Name : ${formData.firstName} ${formData.lastName}`;
         setFullName(newFullName)
+        
     }
 
      const handleChange = (e)=>{
@@ -58,7 +60,7 @@ const Myform = () => {
                 <button type="submit"> Submit </button>
             </form>
 
-             Full Name : {fullName}
+           {fullName}
         </div>
     </div>
   )
