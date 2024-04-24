@@ -58,6 +58,8 @@ const Myform = () => {
             <br/>
                 
                 <button type="submit"> Submit </button>
+                <button type="button" id="next" >Next</button>
+
             </form>
 
            {fullName}
