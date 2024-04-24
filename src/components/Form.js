@@ -34,10 +34,6 @@ const Myform = () => {
 
      }
      
-     const handleNextClick = () => {
-        console.log('Next button clicked!');
-        // Add any logic for handling the next step here
-      };
 
 
   return (
@@ -62,11 +58,11 @@ const Myform = () => {
             <br/>
                 
                 <button type="submit"> Submit </button>
-                <button type="button" id="next" onClick={handleNextClick}>Next</button>
+             
 
             </form>
 
-          Full Name : {fullName}
+          <p>Full Name : {fullName}</p>
         </div>
     </div>
   )
