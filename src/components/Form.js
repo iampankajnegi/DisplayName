@@ -17,8 +17,8 @@ const MyForm = () => {
   };
 
   const handleChange = (e) => {
-    // Use a regular expression to allow only letters and spaces for the first and last names
-    const regex = /^[a-zA-Z\s]*$/;
+    // Use a regular expression to allow only letters, spaces, and special characters for the first and last names
+    const regex = /^[a-zA-Z\s!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/;
     const { name, value } = e.target;
     if (regex.test(value) || value === '') {
       // Allow empty value or valid input
