@@ -28,11 +28,15 @@ const Myform = () => {
         
     }
 
-     const handleChange = (e)=>{
-
-          setFormData({...formData,[e.target.name]:e.target.value})
-
-     }
+    const handleChange = (e) => {
+        // Use a regular expression to allow only letters and spaces for the first and last names
+        const regex = /^[a-zA-Z\s]*$/;
+        const { name, value } = e.target;
+        if (regex.test(value) || value === '') { // Allow empty value
+          setFormData({ ...formData, [name]: value });
+        }
+      };
+      
      
 
 
@@ -62,7 +66,7 @@ const Myform = () => {
 
             </form>
 
-          <p>Full Name : {fullName}</p>
+          Full Name : {fullName}
         </div>
     </div>
   )
