@@ -58,7 +58,7 @@ const Myform = () => {
                 <button type="submit"> Submit </button>
             </form>
 
-             <p>Full Name : {fullName}</p>
+             Full Name : {fullName}
         </div>
     </div>
   )
