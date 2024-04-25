@@ -12,6 +12,11 @@ const MyForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (formData.firstName.trim() === '' || formData.lastName.trim() === '') {
+      setFullName('');
+      return; // Exit early if any field is empty
+    }
+
     const newFullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
     setFullName(newFullName);
   };
