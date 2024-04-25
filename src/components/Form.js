@@ -8,18 +8,12 @@ const MyForm = () => {
   });
 
   const [fullName, setFullName] = useState('');
-  const [formError, setFormError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.firstName.trim() || !formData.lastName.trim()) {
-      setFormError('Please fill in both first name and last name.');
-    } else {
-      const newFullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-      setFullName(newFullName);
-      setFormError('');
-    }
+    const newFullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
+    setFullName(newFullName);
   };
 
   const handleChange = (e) => {
@@ -29,9 +23,8 @@ const MyForm = () => {
 
   return (
     <div>
-      <div className="form-display">
+      <div className="full-name-display">
         <h1>Full Name Display</h1>
-        {formError && <div className="error-message">{formError}</div>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name:</label>
           <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleChange} required />
@@ -41,7 +34,7 @@ const MyForm = () => {
           <br />
           <button type="submit">Submit</button>
         </form>
-        <div className="full-name-display">Full Name: {fullName}</div>
+        Full Name: {fullName} {/* Moved the full name display outside the form */}
       </div>
     </div>
   );
