@@ -1,52 +1,53 @@
 import React, { useState } from 'react';
-import './form.css';
 
-const MyForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-  });
-
+const FormComponent = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (formData.firstName.trim() === '' || formData.lastName.trim() === '') {
-      setFullName('');
-      return; // Exit early if any field is empty
-    }
-
-    const newFullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-    setFullName(newFullName);
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
   };
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
 
-    // Allow special characters and numbers in the input fields
-    value = value.replace(/[^a-zA-Z0-9\s]/g, ''); // Remove any character that is not a letter, number, or whitespace
-
-    setFormData({ ...formData, [name]: value });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const fullNameValue = `${firstName} ${lastName}`;
+    setFullName(fullNameValue.trim());
   };
 
   return (
     <div>
-      <div className="form-display">
-        <h1>Full Name Display</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleChange} required />
-          <br />
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} required />
-          <br />
-          <button type="submit">Submit</button>
-        </form>
-        <div className="full-name-display">Full Name: {fullName}</div>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={firstName}
+          onChange={handleFirstNameChange}
+          required
+        />
+
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={lastName}
+          onChange={handleLastNameChange}
+          required
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {fullName && <p>Full Name: {fullName}</p>}
     </div>
   );
 };
 
-export default MyForm;
+export default FormComponent;
