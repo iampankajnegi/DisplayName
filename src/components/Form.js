@@ -12,16 +12,14 @@ const MyForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newFullName = `${formData.firstName} ${formData.lastName}`;
+    const newFullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
     setFullName(newFullName);
   };
 
   const handleChange = (e) => {
-  
     const { name, value } = e.target;
-  
-      setFormData({ ...formData, [name]: value });
-    };
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <div>
@@ -35,12 +33,8 @@ const MyForm = () => {
           <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} required />
           <br />
           <button type="submit">Submit</button>
-
-          Full Name:{fullName}
         </form>
-        
-       
-        
+        <div className="full-name-display">Full Name: {fullName}</div> {/* Moved the full name display outside the form */}
       </div>
     </div>
   );
