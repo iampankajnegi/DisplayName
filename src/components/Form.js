@@ -35,10 +35,12 @@ const MyForm = () => {
           <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} required />
           <br />
           <button type="submit">Submit</button>
+
+          Full Name:{fullName}
         </form>
-        <h5>
-        Full Name:{fullName}
-        </h5>
+        
+       
+        
       </div>
     </div>
   );
