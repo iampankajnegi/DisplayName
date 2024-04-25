@@ -17,13 +17,17 @@ const MyForm = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+
+    // Allow special characters and numbers in the input fields
+    value = value.replace(/[^a-zA-Z0-9\s]/g, ''); // Remove any character that is not a letter, number, or whitespace
+
     setFormData({ ...formData, [name]: value });
   };
 
   return (
     <div>
-      <div className="full-name-display">
+      <div className="form-display">
         <h1>Full Name Display</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name:</label>
@@ -34,7 +38,7 @@ const MyForm = () => {
           <br />
           <button type="submit">Submit</button>
         </form>
-        Full Name: {fullName} {/* Moved the full name display outside the form */}
+        <div className="full-name-display">Full Name: {fullName}</div>
       </div>
     </div>
   );
