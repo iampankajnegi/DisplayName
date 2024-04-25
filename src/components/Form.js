@@ -34,7 +34,7 @@ const MyForm = () => {
           <br />
           <button type="submit">Submit</button>
         </form>
-        <div className="full-name-display">Full Name: {fullName}</div> {/* Moved the full name display outside the form */}
+        <div className="contain">Full Name:{fullName}</div> {/* Moved the full name display outside the form */}
       </div>
     </div>
   );
