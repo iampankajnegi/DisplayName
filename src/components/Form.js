@@ -12,7 +12,7 @@ const MyForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newFullName = `full name:${formData.firstName} ${formData.lastName}`;
+    const newFullName = `Full Name:${formData.firstName} ${formData.lastName}`;
     setFullName(newFullName);
   };
 
