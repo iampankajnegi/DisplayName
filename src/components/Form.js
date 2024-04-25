@@ -12,19 +12,16 @@ const MyForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newFullName = `${formData.firstName} ${formData.lastName}`;
+    const newFullName = `full name:${formData.firstName} ${formData.lastName}`;
     setFullName(newFullName);
   };
 
   const handleChange = (e) => {
-    // Use a regular expression to allow only letters, spaces, and special characters for the first and last names
-    const regex = /^[a-zA-Z\s!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/;
+  
     const { name, value } = e.target;
-    if (regex.test(value) || value === '') {
-      // Allow empty value or valid input
+  
       setFormData({ ...formData, [name]: value });
-    }
-  };
+    };
 
   return (
     <div>
@@ -39,7 +36,9 @@ const MyForm = () => {
           <br />
           <button type="submit">Submit</button>
         </form>
-        Full Name: {fullName}
+        <h5>
+        {fullName}
+        </h5>
       </div>
     </div>
   );
